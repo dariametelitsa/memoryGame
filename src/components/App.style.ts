@@ -35,23 +35,4 @@ export namespace Styles {
         text-transform: uppercase;
         letter-spacing: 0.1em;
     `;
-
-    export const Button = styled.button`
-        color: ${props => props.theme.text};
-        font-size: 1rem;
-        padding: 10px 20px;
-        background-color: ${props => props.theme.accent};
-        color: ${props => props.theme.background};
-        text-transform: uppercase;
-        border: 2px solid transparent;
-        font-weight: bold;
-        border-radius: 6px;
-        transition: 0.3s;
-
-        &:hover {
-            color: ${props => props.theme.accent};
-            background-color: ${props => props.theme.background};
-            border: 2px solid ${props => props.theme.accent};
-        }
-    `;
 }

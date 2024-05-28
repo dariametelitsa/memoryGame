@@ -1,7 +1,7 @@
 import { Style } from "./Field.style.ts";
 import { Card } from "../card/Card.tsx";
 import { useEffect, useState } from "react";
-import { Styles } from "../App.style.ts";
+import { Button } from "../fancyButton/Button.tsx";
 
 export type ContentType = {
     emoji: string
@@ -70,7 +70,6 @@ export const Field = () => {
         setTurns(0);
     };
 
-
     //handle a choice
     const handleChoise = (card: ContentType) => {
         if (choiseOne) {
@@ -91,7 +90,7 @@ export const Field = () => {
     };
 
     return (<>
-            <Styles.Button onClick={() => shuffleCards(emojisArr)}>New Game</Styles.Button>
+            <Button onClick={() => shuffleCards(emojisArr)}>New Game</Button>
             <Style.Field>
                 {cards.map(el => {
                     return (

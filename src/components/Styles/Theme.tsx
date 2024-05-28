@@ -8,6 +8,7 @@ export type ThemeContextType = {
 type Theme = {
     text: string
     background: string
+    field: string
     accent: string
     add: string
     attention: string
@@ -19,6 +20,7 @@ type ThemeProps = {
 const themeLight: Theme = {
     text: "#1c1a27",
     background: "#f9f9f9",
+    field: "#d3d3d3",
     accent: '#6750a4',
     add: '#625b71',
     attention: '#b3261e',
@@ -27,6 +29,7 @@ const themeLight: Theme = {
 const themeDark: Theme = {
     text: "#fbfafe",
     background: '#1c1a27',
+    field: "#717171",
     accent: '#d0bcff',
     add: '#ccc2dc',
     attention: '#f2b8b5',

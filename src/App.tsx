@@ -1,33 +1,28 @@
 import './App.css'
-import { Styles } from './components/Styles/Styles.ts';
 import { SwitchTheme } from "./components/switchTheme/SwitchTheme.tsx";
-import styled from "styled-components";
-import { useContext } from "react";
+import { Styles } from "./components/App.style.ts";
+import { useContext, useState } from "react";
 import { ThemeContext, ThemeContextType } from "./components/Styles/Theme.tsx";
+import { Field } from "./components/field/Field.tsx";
 
 function App() {
-const {changeTheme} = useContext(ThemeContext) as ThemeContextType;
+    const {changeTheme} = useContext(ThemeContext) as ThemeContextType;
+    const [reset, setReset] = useState(true);
+
+
     return (
-        <Background>
+        <Styles.Background>
             <Styles.Container>
-                <Title>Memory Game</Title>
-                <SwitchTheme onChange={changeTheme} />
-                <button>Butn</button>
-                <a href={'#1'}>asdfghj link</a>
+                <Styles.Title>Memory Game</Styles.Title>
+                <SwitchTheme onChange={changeTheme}/>
+                <Field></Field>
+                <Styles.Button onClick={() => setReset(!reset)}>Reset game</Styles.Button>
             </Styles.Container>
-        </Background>
+        </Styles.Background>
     )
 }
 
 export default App
 
-const Background = styled.div`
-    width: 100%;
-    height: 100vh;
-    background-color: ${props => props.theme.background};
-`;
 
-const Title = styled.h1 `
-    color: ${props => props.theme.text};
-    font-size: 3rem;
-`;
+

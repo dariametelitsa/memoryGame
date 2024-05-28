@@ -37,6 +37,7 @@ const BilletStyled = styled.div<{ $isOpen: boolean, $isMatch: boolean }>`
     user-select: none;
     background-color: ${props => props.theme.background};
     transition: 0.3s;
+    transform: rotateY(0deg);
 
     &::after {
         content: '';
@@ -44,13 +45,12 @@ const BilletStyled = styled.div<{ $isOpen: boolean, $isMatch: boolean }>`
         inset: 0;
         background-color: ${props => props.theme.add};
         transition: 0.3s;
-        //transform: rotateY(0deg);
-        //backface-visibility: hidden;
-        opacity: 0.9;
+        transform: rotateY(0deg);
+        backface-visibility: hidden;
+        opacity: 1;
 
         ${props => props.$isOpen && css<{ $isOpen: boolean }>`
             transform: rotateY(180deg);
-            opacity: 0;
         `}
 
         ${props => props.$isMatch && css<{ $isMatch: boolean }>`
@@ -59,7 +59,8 @@ const BilletStyled = styled.div<{ $isOpen: boolean, $isMatch: boolean }>`
     };
 
     ${props => props.$isOpen && css<{ $isOpen: boolean }>`
-        //transform: rotateY(180deg);
+        z-index: 99;
+        transform: rotateY(180deg);
     `}
 
     ${props => props.$isMatch && css<{ $isMatch: boolean }>`

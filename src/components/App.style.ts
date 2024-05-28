@@ -8,6 +8,8 @@ export namespace Styles {
         justify-content: center;
         align-items: center;
         background-color: ${props => props.theme.background};
+        
+        
     `;
 
     export const Container = styled.div`

@@ -12,9 +12,9 @@ function App() {
 
     return (
         <Styles.Background>
+            <SwitchTheme onChange={changeTheme}/>
             <Styles.Container>
                 <Styles.Title>Memory Game</Styles.Title>
-                <SwitchTheme onChange={changeTheme}/>
                 <GameField/>
             </Styles.Container>
         </Styles.Background>

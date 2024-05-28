@@ -1,5 +1,5 @@
 import { Style } from "./Field.style.ts";
-import { Card } from "../card/Billet.tsx";
+import { Card } from "../card/Card.tsx";
 import { useEffect, useState } from "react";
 import { Styles } from "../App.style.ts";
 
@@ -8,17 +8,6 @@ export type ContentType = {
     id: number
     matched: boolean
 };
-
-// const emojisArr: EmojiType[] = [
-//     {emoji: '🥗', match: false,},
-//     {emoji: '🌭', match: false,},
-//     {emoji: '🍟', match: false,},
-//     {emoji: '🍔', match: true,},
-//     {emoji: '🍕', match: false,},
-//     {emoji: '🍳', match: false,},
-//     {emoji: '🍪', match: false,},
-//     {emoji: '🍫', match: false,}
-// ];
 const emojisArr: string[] = ['🥗', '🌭', '🍟', '🍔', '🍕', '🍳', '🍪', '🍫'];
 
 export const Field = () => {
@@ -54,7 +43,7 @@ export const Field = () => {
 
                 if (cards.reduce((acc, el) => (!el.matched ? acc + 1 : acc), 0) === 2) {
                     setTimeout(() => {
-                        alert('Congratulations!');
+                        alert(`Congratulations! You win! It's take ${turns + 1} attemps.`);
                     }, 700);
                 }
 
@@ -93,7 +82,6 @@ export const Field = () => {
         }
     };
 
-
     //reset choices & increase turn
     const resetTurn = () => {
         setDisabled(false);
@@ -101,7 +89,6 @@ export const Field = () => {
         setChoiseTwo(null);
         setTurns(prev => prev + 1);
     };
-
 
     return (<>
             <Styles.Button onClick={() => shuffleCards(emojisArr)}>New Game</Styles.Button>

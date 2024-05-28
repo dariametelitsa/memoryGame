@@ -1,32 +1,6 @@
 import styled, { css } from "styled-components";
-import { ContentType } from "../field/Field.tsx";
 
-type BilletProps = {
-    content: ContentType
-    isOpen: boolean
-    handleChoice: (card: ContentType) => void
-    disabled: boolean
-};
-export const Card = ({content, handleChoice, isOpen, disabled}: BilletProps) => {
-    const onClickHandler = () => {
-        if(!disabled) {
-            if(!content.matched) {
-                handleChoice(content);
-            }
-        }
-    };
-
-    return (
-        <BilletStyled onClick={onClickHandler} $isOpen={isOpen} $isMatch={content.matched}>
-            {content.emoji}
-        </BilletStyled>
-    );
-};
-
-
-//Styles
-
-const BilletStyled = styled.div<{ $isOpen: boolean, $isMatch: boolean }>`
+export const BilletStyled = styled.div<{ $isOpen: boolean, $isMatch: boolean }>`
     position: relative;
     width: 100px;
     height: 100px;
@@ -47,16 +21,17 @@ const BilletStyled = styled.div<{ $isOpen: boolean, $isMatch: boolean }>`
         transition: 0.3s;
         transform: rotateY(0deg);
         backface-visibility: hidden;
-        opacity: 0.5;
+        opacity: 1;
 
         ${props => props.$isOpen && css<{ $isOpen: boolean }>`
             transform: rotateY(180deg);
         `}
 
         ${props => props.$isMatch && css<{ $isMatch: boolean }>`
-           opacity: 0;
+            opacity: 0;
         `}
-    };
+    }
+;
 
     ${props => props.$isOpen && css<{ $isOpen: boolean }>`
         z-index: 99;

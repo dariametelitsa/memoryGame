@@ -106,7 +106,7 @@ export const Field = () => {
                             key={el.id}
                             content={el}
                             isOpen={el === choiseOne || el === choiseTwo}
-                            handleChoise={handleChoise}
+                            handleChoice={handleChoise}
                             disabled={disabled}
                         />)
                 })}

@@ -4,14 +4,14 @@ import { ContentType } from "../field/Field.tsx";
 type BilletProps = {
     content: ContentType
     isOpen: boolean
-    handleChoise: (card: ContentType) => void
+    handleChoice: (card: ContentType) => void
     disabled: boolean
 };
-export const Card = ({content, handleChoise, isOpen, disabled}: BilletProps) => {
+export const Card = ({content, handleChoice, isOpen, disabled}: BilletProps) => {
     const onClickHandler = () => {
         if(!disabled) {
             if(!content.matched) {
-                handleChoise(content);
+                handleChoice(content);
             }
         }
     };

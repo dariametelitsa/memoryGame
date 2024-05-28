@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Style } from "./switchTheme/SwitchTheme.style.ts";
 
 export namespace Styles {
     export const Background = styled.div`
@@ -8,8 +9,12 @@ export namespace Styles {
         justify-content: center;
         align-items: center;
         background-color: ${props => props.theme.background};
-        
-        
+
+        & ${Style.Switch} {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+        }
     `;
 
     export const Container = styled.div`

@@ -52,6 +52,12 @@ export const Field = () => {
                     });
                 }, 300);
 
+                if (cards.reduce((acc, el) => (!el.matched ? acc + 1 : acc), 0) === 2) {
+                    setTimeout(() => {
+                        alert('Congratulations!');
+                    }, 700);
+                }
+
             } else {
                 setTimeout(() => {
                     resetTurn();

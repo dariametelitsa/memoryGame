@@ -47,7 +47,7 @@ const BilletStyled = styled.div<{ $isOpen: boolean, $isMatch: boolean }>`
         transition: 0.3s;
         transform: rotateY(0deg);
         backface-visibility: hidden;
-        opacity: 1;
+        opacity: 0.5;
 
         ${props => props.$isOpen && css<{ $isOpen: boolean }>`
             transform: rotateY(180deg);

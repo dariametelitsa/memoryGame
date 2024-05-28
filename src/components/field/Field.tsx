@@ -29,21 +29,21 @@ export const Field = () => {
     const [choiseTwo, setChoiseTwo] = useState<ContentType | null>(null);
     const [disabled, setDisabled] = useState(false);
 
-
+// for correct game start
     useEffect(() => {
-        shuffleCards(emojisArr)
+        shuffleCards(emojisArr);
     }, []);
 
     //compare two selected cards
-    useEffect(()=> {
-        if(choiseOne && choiseTwo) {
+    useEffect(() => {
+        if (choiseOne && choiseTwo) {
             setDisabled(true);
-            if(choiseOne.emoji === choiseTwo.emoji) {
+            if (choiseOne.emoji === choiseTwo.emoji) {
                 setTimeout(() => {
                     resetTurn();
                     setCards(prevCards => {
                         return prevCards.map(card => {
-                            if(card.emoji === choiseOne.emoji) {
+                            if (card.emoji === choiseOne.emoji) {
                                 return {...card, matched: true};
                             } else {
                                 return card;
@@ -69,6 +69,8 @@ export const Field = () => {
                 matched: false
             };
         });
+        setChoiseOne(null);
+        setChoiseTwo(null);
         setCards(shuffledCards);
         setTurns(0);
     };
@@ -76,8 +78,8 @@ export const Field = () => {
 
     //handle a choice
     const handleChoise = (card: ContentType) => {
-        if(choiseOne) {
-            if(choiseOne.id !== card.id) {
+        if (choiseOne) {
+            if (choiseOne.id !== card.id) {
                 setChoiseTwo(card)
             }
         } else {
@@ -96,6 +98,7 @@ export const Field = () => {
 
 
     return (<>
+            <Styles.Button onClick={() => shuffleCards(emojisArr)}>New Game</Styles.Button>
             <Style.Field>
                 {cards.map(el => {
                     return (
@@ -108,7 +111,7 @@ export const Field = () => {
                         />)
                 })}
             </Style.Field>
-            <Styles.Button onClick={() => shuffleCards(emojisArr)}>New Game</Styles.Button>
+            <p>Turns: {turns}</p>
         </>
     );
 };

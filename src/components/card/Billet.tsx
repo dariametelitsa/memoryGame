@@ -24,8 +24,6 @@ export const Card = ({content, handleChoise, isOpen, disabled}: BilletProps) => 
 };
 
 
-
-
 //Styles
 
 const BilletStyled = styled.div<{ $isOpen: boolean, $isMatch: boolean }>`
@@ -46,25 +44,25 @@ const BilletStyled = styled.div<{ $isOpen: boolean, $isMatch: boolean }>`
         inset: 0;
         background-color: ${props => props.theme.add};
         transition: 0.3s;
-        transform: rotateY(0deg);
-        backface-visibility: hidden;
-        opacity: 0.5;
+        //transform: rotateY(0deg);
+        //backface-visibility: hidden;
+        opacity: 0.9;
 
         ${props => props.$isOpen && css<{ $isOpen: boolean }>`
             transform: rotateY(180deg);
+            opacity: 0;
         `}
 
-        ${props => props.$isMatch && css<{ $isOpen: boolean }>`
+        ${props => props.$isMatch && css<{ $isMatch: boolean }>`
            opacity: 0;
         `}
-    }
-;
+    };
 
     ${props => props.$isOpen && css<{ $isOpen: boolean }>`
-        transform: rotateY(180deg);
+        //transform: rotateY(180deg);
     `}
 
-    ${props => props.$isMatch && css<{ $isOpen: boolean }>`
+    ${props => props.$isMatch && css<{ $isMatch: boolean }>`
         outline: 3px solid gold;
         transform: rotateY(180deg);
         background-color: ${props => props.theme.field};

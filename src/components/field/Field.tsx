@@ -43,7 +43,7 @@ export const Field = () => {
 
                 if (cards.reduce((acc, el) => (!el.matched ? acc + 1 : acc), 0) === 2) {
                     setTimeout(() => {
-                        alert(`Congratulations! You win! It's take ${turns + 1} attemps.`);
+                        alert(`Congratulations! You win! It's took ${turns + 1} attemps.`);
                     }, 700);
                 }
 
